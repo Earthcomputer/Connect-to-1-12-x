@@ -16,7 +16,7 @@ import fi.dy.masa.malilib.util.JsonUtils;
 
 public class Config implements IConfigHandler {
 
-	public static final ConfigInteger CONNECTION_THROTTLE = new ConfigInteger("connectionThrottle", 1000, 0, 10000,
+	public static final ConfigInteger CONNECTION_THROTTLE = new ConfigInteger("connectionThrottle", 0, 0, 10000,
 			"The amount of time to wait between reconnecting with a different version");
 	public static final ConfigInteger DEFAULT_PROTOCOL_VERSION = new ConfigInteger("defaultProtocolVersion",
 			PacketLists.PROTOCOL_1_12, PacketLists.PROTOCOL_1_12, PacketLists.PROTOCOL_1_12_2,
