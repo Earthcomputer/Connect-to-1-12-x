@@ -1,0 +1,60 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {url 'http://files.minecraftforge.net/maven'}
+		maven {url 'http://repo.spongepowered.org/maven'}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+		classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'net.minecraftforge.gradle.liteloader'
+apply plugin: 'org.spongepowered.mixin'
+
+minecraft.version = '1.12'
+
+group = 'net.earthcomputer.connect_to_1_12_x'
+archivesBaseName = "connect_to_1_12_x-${minecraft.version}"
+version = '1.2'
+
+repositories {
+	maven {url 'https://masa.dy.fi/maven'}
+}
+dependencies {
+	deobfCompile 'fi.dy.masa.malilib:malilib-1.12.0:0.6.0:deobf'
+}
+
+minecraft {
+	mappings = 'snapshot_20180702'
+	runDir = 'run'
+	makeObfSourceJar = false
+}
+
+litemod {
+	json {
+		name = 'connect_to_1_12_x'
+		displayName = 'Connect to 1.12.x'
+		mcversion = project.minecraft.version
+		version = project.version
+		author = 'Earthcomputer'
+		mixinConfigs = ['mixins.connect_to_1_12_x.json']
+	}
+}
+sourceSets {
+	main {
+		ext.refMap = 'mixins.connect_to_1_12_x.refmap.json'
+	}
+}
+
+mixin {
+	defaultObfuscationEnv notch
+}
+
+jar {
+	classifier = ''
+	baseName = archivesBaseName
+	from litemod.outputs
+}

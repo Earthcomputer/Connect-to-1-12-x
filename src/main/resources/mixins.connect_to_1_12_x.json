@@ -1,0 +1,23 @@
+{
+	"required": true,
+	"package": "net.earthcomputer.connect_to_1_12_x.mixin",
+	"refmap": "mixins.connect_to_1_12_x.refmap.json",
+	"minVersion": "0.6",
+	"client": [
+		"MixinServerListEntryNormal",
+		"MixinEnumConnectionState",
+		
+		"MixinC00Handshake",
+		"MixinRealmsConnect",
+		"MixinGuiConnecting",
+		"MixinGuiConnecting_1",
+		"MixinNetHandlerLoginClient",
+		"MixinNetworkManager",
+		
+		"MixinGuiRecipeBook",
+		"MixinGuiDownloadTerrain"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"name": "Connect to 1.12.x",
+	"mcversion": "1.12",
+	"mixinConfigs": ["mixins.connect_to_1_12_x.json"]
+}
