@@ -33,7 +33,7 @@ public class Config implements IConfigHandler {
 		JsonElement element = JsonUtils.parseJsonFile(configFile);
 		if (element != null && element.isJsonObject()) {
 			JsonObject root = element.getAsJsonObject();
-			ConfigUtils.readConfigValues(root, "General", OPTIONS);
+			ConfigUtils.readConfigBase(root, "General", OPTIONS);
 		}
 	}
 
@@ -43,7 +43,7 @@ public class Config implements IConfigHandler {
 			return;
 
 		JsonObject root = new JsonObject();
-		ConfigUtils.writeConfigValues(root, "General", OPTIONS);
+		ConfigUtils.writeConfigBase(root, "General", OPTIONS);
 		JsonUtils.writeJsonToFile(root, configFile);
 	}
 

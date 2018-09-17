@@ -1,8 +1,7 @@
 package net.earthcomputer.connect_to_1_12_x;
 
-import fi.dy.masa.malilib.config.IConfigValue;
 import fi.dy.masa.malilib.config.gui.ConfigPanelBase;
-import fi.dy.masa.malilib.config.gui.ConfigPanelSub;
+import fi.dy.masa.malilib.config.gui.GuiModConfigs;
 
 public class ConnectTo112xConfigPanel extends ConfigPanelBase {
 
@@ -13,8 +12,7 @@ public class ConnectTo112xConfigPanel extends ConfigPanelBase {
 
 	@Override
 	protected void createSubPanels() {
-		addSubPanel(
-				new ConfigPanelSub("connect_to_1_12_x", "General", Config.OPTIONS.toArray(new IConfigValue[0]), this));
+		addSubPanel(new GuiModConfigs("connect_to_1_12_x", "General", Config.OPTIONS).setConfigWidth(120));
 	}
 
 }
