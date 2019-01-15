@@ -7,3 +7,6 @@ build.number
 /build/
 *.launch
 /run/
+.idea/
+*.iml
+*.ipr
