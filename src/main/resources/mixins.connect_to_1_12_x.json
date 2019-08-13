@@ -6,13 +6,11 @@
 	"client": [
 		"MixinServerListEntryNormal",
 		"MixinEnumConnectionState",
+		"MixinServerData",
+		"MixinGuiScreenAddServer",
 		
 		"MixinC00Handshake",
-		"MixinRealmsConnect",
-		"MixinGuiConnecting",
 		"MixinGuiConnecting_1",
-		"MixinNetHandlerLoginClient",
-		"MixinNetworkManager",
 		
 		"MixinGuiRecipeBook",
 		"MixinGuiDownloadTerrain"

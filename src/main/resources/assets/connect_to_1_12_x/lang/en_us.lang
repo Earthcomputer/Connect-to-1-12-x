@@ -1,5 +1,2 @@
 
-multi.connect.connecting=Connecting using protocol version %s
-multi.connect.authorizing=Attempting login using protocol version %s
-connect.disconnected.mvfailed=MultiVersion Connection Failed
-connect.disconnected.mvfailed.version=Tried protocol versions %s
+addServer.protocolVersion=Minecraft Version: %s
