@@ -7,6 +7,7 @@ import it.unimi.dsi.fastutil.ints.IntListIterator;
 import net.earthcomputer.connect_to_1_12_x.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.recipebook.GhostRecipe;
 import net.minecraft.client.gui.recipebook.GuiRecipeBook;
 import net.minecraft.client.gui.recipebook.RecipeBookPage;
@@ -26,6 +27,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
@@ -36,6 +38,8 @@ import java.util.List;
 public class MixinGuiRecipeBook implements IGuiRecipeBook {
 
     private static final Logger LOGGER = LogManager.getLogger();
+
+    @Unique
     private Container container;
 
     @Shadow
@@ -78,6 +82,14 @@ public class MixinGuiRecipeBook implements IGuiRecipeBook {
 
     @Shadow
     public void toggleVisibility() {
+    }
+
+    @Inject(method = "func_194303_a", at = @At("RETURN"))
+    public void onInitialize(int width, int height, Minecraft mc, boolean p_194303_4_, InventoryCrafting p_194303_5_, CallbackInfo ci) {
+        GuiScreen gui = Minecraft.getMinecraft().currentScreen;
+        if (gui instanceof GuiContainer) {
+            this.container = ((GuiContainer) gui).inventorySlots;
+        }
     }
 
     @Inject(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/recipebook/RecipeList;isCraftable(Lnet/minecraft/item/crafting/IRecipe;)Z"), cancellable = true)
