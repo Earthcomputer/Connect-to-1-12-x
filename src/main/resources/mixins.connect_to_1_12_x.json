@@ -10,8 +10,7 @@
 		"MixinGuiScreenAddServer",
 		
 		"MixinC00Handshake",
-		"MixinGuiConnecting_1",
-		
+
 		"MixinGuiRecipeBook",
 		"MixinGuiDownloadTerrain"
 	],

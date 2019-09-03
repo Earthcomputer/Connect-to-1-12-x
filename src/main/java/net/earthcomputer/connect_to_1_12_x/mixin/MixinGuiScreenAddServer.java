@@ -26,21 +26,21 @@ public abstract class MixinGuiScreenAddServer extends GuiScreen {
         for (GuiButton button : buttonList)
             button.y += button.id == 2 ? 30 : 10;
 
-        versionButton = addButton(new GuiButton(-1, width / 2 - 100, 136, 200, 20, "1.12"));
+        versionButton = addButton(new GuiButton(-1, width / 2 - 100, 136, 200, 20, "1.12.2"));
         refreshProtocolButton();
     }
 
     private void refreshProtocolButton() {
         switch (((IExServerData) serverData).getProtocolVersion()) {
+            case PacketLists.PROTOCOL_1_12:
+                versionButton.displayString = "1.12";
+                break;
             case PacketLists.PROTOCOL_1_12_1:
                 versionButton.displayString = "1.12.1";
                 break;
             case PacketLists.PROTOCOL_1_12_2:
-                versionButton.displayString = "1.12.2";
-                break;
-            case PacketLists.PROTOCOL_1_12:
             default:
-                versionButton.displayString = "1.12";
+                versionButton.displayString = "1.12.2";
                 break;
         }
         versionButton.displayString = I18n.format("addServer.protocolVersion", versionButton.displayString);

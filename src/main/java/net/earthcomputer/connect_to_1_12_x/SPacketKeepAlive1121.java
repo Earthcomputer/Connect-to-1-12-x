@@ -7,13 +7,13 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
 
-public class SPacketKeepAlive1122 implements Packet<INetHandlerPlayClient> {
+public class SPacketKeepAlive1121 implements Packet<INetHandlerPlayClient> {
 
-	private long id;
+	private int id;
 
 	@Override
 	public void readPacketData(PacketBuffer buf) throws IOException {
-		this.id = buf.readLong();
+		this.id = buf.readVarInt();
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class SPacketKeepAlive1122 implements Packet<INetHandlerPlayClient> {
 
 	@Override
 	public void processPacket(INetHandlerPlayClient handler) {
-		Minecraft.getMinecraft().getConnection().sendPacket(new CPacketKeepAlive1122(id));
+		Minecraft.getMinecraft().getConnection().sendPacket(new CPacketKeepAlive1121(id));
 	}
 
 }
