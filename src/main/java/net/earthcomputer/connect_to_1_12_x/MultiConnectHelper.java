@@ -8,7 +8,7 @@ public class MultiConnectHelper {
 
     public static int getProtocolVersion() {
         ServerData data = Minecraft.getMinecraft().getCurrentServerData();
-        return data == null ? PacketLists.PROTOCOL_1_12 : ((IExServerData) data).getProtocolVersion();
+        return data == null ? PacketLists.PROTOCOL_1_12_2 : ((IExServerData) data).getProtocolVersion();
     }
 
     public static void onHandshakeSent(int version, String ip, int port, EnumConnectionState nextState) {

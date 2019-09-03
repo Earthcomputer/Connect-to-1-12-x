@@ -17,7 +17,7 @@ public class MixinServerListEntryNormal {
 	@Final
 	private ServerData server;
 
-	@ModifyConstant(method = "drawEntry", constant = @Constant(intValue = PacketLists.PROTOCOL_1_12), expect = 2)
+	@ModifyConstant(method = "drawEntry", constant = @Constant(intValue = PacketLists.PROTOCOL_1_12_2), expect = 2)
 	public int modifyProtocolVersion(int oldVersion) {
 		if (PacketLists.isProtocolSupported(server.version))
 			return server.version;

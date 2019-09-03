@@ -14,14 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(ServerData.class)
 public class MixinServerData implements IExServerData {
 
-    private int protocolVersion = PacketLists.PROTOCOL_1_12;
+    private int protocolVersion = PacketLists.PROTOCOL_1_12_2;
 
     @Inject(method = "getServerDataFromNBTCompound", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void onReadServerData(NBTTagCompound nbt, CallbackInfoReturnable<ServerData> ci, ServerData data) {
         if (nbt.hasKey("ProtocolVersion", 99))
             ((IExServerData) data).setProtocolVersion(nbt.getInteger("ProtocolVersion"));
         else
-            ((IExServerData) data).setProtocolVersion(PacketLists.PROTOCOL_1_12);
+            ((IExServerData) data).setProtocolVersion(PacketLists.PROTOCOL_1_12_2);
     }
 
     @Inject(method = "getNBTCompound", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
