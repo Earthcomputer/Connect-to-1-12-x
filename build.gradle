@@ -18,7 +18,7 @@ minecraft.version = '1.12.2'
 
 group = 'net.earthcomputer.connect_to_1_12_x'
 archivesBaseName = "connect_to_1_12_x-${minecraft.version}"
-version = '1.4'
+version = '1.5'
 
 minecraft {
 	mappings = 'snapshot_20180702'

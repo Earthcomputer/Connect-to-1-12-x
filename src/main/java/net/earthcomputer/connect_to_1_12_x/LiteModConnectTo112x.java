@@ -13,7 +13,7 @@ public class LiteModConnectTo112x implements LiteMod {
 
 	@Override
 	public String getVersion() {
-		return "1.4";
+		return "1.5";
 	}
 
 	@Override
