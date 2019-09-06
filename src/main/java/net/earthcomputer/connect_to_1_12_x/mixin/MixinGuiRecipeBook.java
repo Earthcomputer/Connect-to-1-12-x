@@ -188,7 +188,7 @@ public class MixinGuiRecipeBook implements IGuiRecipeBook {
                 List<CPacketRecipePlacement.ItemMove> list3 = Lists.<CPacketRecipePlacement.ItemMove>newArrayList();
                 this.placeRecipe(p_193950_1_, p_193950_2_, j1, intlist, list3);
                 short short1 = this.mc.player.openContainer.getNextTransactionID(this.mc.player.inventory);
-                this.mc.getConnection().sendPacket(new CPacketRecipePlacement(this.container.windowId, list2, Lists.newArrayList(), short1));
+                this.mc.getConnection().sendPacket(new CPacketRecipePlacement(this.container.windowId, list2, list3, short1));
                 this.mc.player.inventory.markDirty();
             }
         }
