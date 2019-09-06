@@ -8,6 +8,7 @@
 		"MixinEnumConnectionState",
 		"MixinServerData",
 		"MixinGuiScreenAddServer",
+		"MixinGuiScreenServerList",
 		
 		"MixinC00Handshake",
 
